@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.fwafawf.R
 import com.example.fwafawf.db.MainDb
@@ -27,6 +28,7 @@ class DefFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (activity as AppCompatActivity?)!!.supportActionBar!!.setDisplayHomeAsUpEnabled(false)
         val view = inflater.inflate(R.layout.fragment_def, container, false)
         val calET = view.findViewById<EditText>(R.id.calET)
         val mdET = view.findViewById<EditText>(R.id.mdET)
@@ -54,7 +56,7 @@ class DefFragment : Fragment() {
         defSPN.adapter = arrayAdapter
         okdefBTN.setOnClickListener {
             if ((calET.text.toString().isEmpty() == false) and (mdET.text.toString()
-                    .isEmpty() == false)
+                    .isEmpty() == false) and (pacientDao!!.all!!.size > 0)
             ) {
                 val cal = calET.text.toString().toDouble()
                 val md = mdET.text.toString().toInt()
@@ -67,12 +69,10 @@ class DefFragment : Fragment() {
                 } else if (res < 0) {
                     resdefTV.text = "Гиперкалиемия"
                 }
-                if (defSPN.selectedItem.toString() != null) {
-                    val pacients1: MutableList<Pacient?> = ArrayList()
-                    pacients1.addAll(pacientDao!!.getWithName(defSPN.selectedItem.toString())!!)
-                    pacients1[0]!!.def = res
-                    pacientDao!!.update(pacients1[0]!!)
-                }
+                val pacients1: MutableList<Pacient?> = ArrayList()
+                pacients1.addAll(pacientDao!!.getWithName(defSPN.selectedItem.toString())!!)
+                pacients1[0]!!.def = res
+                pacientDao!!.update(pacients1[0]!!)
             } else {
                 Toast.makeText(context, "Введите значения!", Toast.LENGTH_LONG).show()
             }

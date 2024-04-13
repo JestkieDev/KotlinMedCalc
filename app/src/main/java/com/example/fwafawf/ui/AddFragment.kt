@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation.findNavController
 import com.example.fwafawf.R
@@ -20,6 +21,7 @@ class AddFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (activity as AppCompatActivity?)!!.supportActionBar!!.setDisplayHomeAsUpEnabled(false)
         val view = inflater.inflate(R.layout.fragment_add, container, false)
         val backBTN = view.findViewById<Button>(R.id.backaddBTN)
         val addBTN = view.findViewById<Button>(R.id.addBTN)
@@ -37,7 +39,8 @@ class AddFragment : Fragment() {
         }
         backBTN.setOnClickListener {
             val dashboardFragment = DashboardFragment()
-            val navController = findNavController(requireActivity(), R.id.nav_host_fragment_activity_main)
+            val navController =
+                findNavController(requireActivity(), R.id.nav_host_fragment_activity_main)
             navController.navigate(R.id.navigation_dashboard)
         }
         return view

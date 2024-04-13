@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.fwafawf.R
 import com.example.fwafawf.db.MainDb
@@ -27,6 +28,7 @@ class CapFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (activity as AppCompatActivity?)!!.supportActionBar!!.setDisplayHomeAsUpEnabled(false)
         val view = inflater.inflate(R.layout.fragment_cap, container, false)
         val capET = view.findViewById<EditText>(R.id.capET)
         val mcapET = view.findViewById<EditText>(R.id.mcapET)
@@ -54,20 +56,19 @@ class CapFragment : Fragment() {
         capSPN.adapter = arrayAdapter
         okcapBTN.setOnClickListener {
             if ((capET.text.toString().isEmpty() == false) and (mcapET.text.toString()
-                    .isEmpty() == false)
+                    .isEmpty() == false) and (pacientDao!!.all!!.size > 0)
             ) {
                 val cap = capET.text.toString().toInt()
                 val mcap = mcapET.text.toString().toInt()
                 val res = cap * 20 / mcap
                 rescapTV.text = "$res капель в мин"
-                if (capSPN.selectedItem.toString() != null) {
-                    val pacients1: MutableList<Pacient?> = ArrayList()
-                    pacients1.addAll(pacientDao!!.getWithName(capSPN.selectedItem.toString())!!)
-                    pacients1[0]!!.cap = res.toDouble()
-                    pacientDao!!.update(pacients1[0]!!)
-                } else {
-                    Toast.makeText(context, "Введите значения!", Toast.LENGTH_LONG).show()
-                }
+                val pacients1: MutableList<Pacient?> = ArrayList()
+                pacients1.addAll(pacientDao!!.getWithName(capSPN.selectedItem.toString())!!)
+                pacients1[0]!!.cap = res.toDouble()
+                pacientDao!!.update(pacients1[0]!!)
+
+            } else {
+                Toast.makeText(context, "Введите данные!", Toast.LENGTH_LONG).show()
             }
         }
         backBTN.setOnClickListener {

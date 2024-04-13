@@ -40,7 +40,8 @@ class DashboardFragment : Fragment() {
         recyclerView?.setHasFixedSize(true)
         recyclerView?.setAdapter(pacientsAdapter)
         addBTN.setOnClickListener {
-            val navController = findNavController(requireActivity(), R.id.nav_host_fragment_activity_main)
+            val navController =
+                findNavController(requireActivity(), R.id.nav_host_fragment_activity_main)
             navController.navigate(R.id.navigation_addpacients)
         }
         return view

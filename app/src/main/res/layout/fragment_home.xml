@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:id="@+id/homefrag"
-    >
+    android:id="@+id/homefrag">
 
 
     <Button
@@ -19,7 +18,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:onClick="OnImt"/>
+        android:onClick="OnImt" />
 
     <Button
         android:id="@+id/infBTN"
@@ -31,7 +30,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imtBTN"
-        android:onClick="OnSpeedInf"/>
+        android:onClick="OnSpeedInf" />
 
     <Button
         android:id="@+id/calBTN"
@@ -43,7 +42,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/infBTN"
-        android:onClick="OnCal"/>
+        android:onClick="OnCal" />
 
     <Button
         android:id="@+id/capBTN"
@@ -55,5 +54,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/calBTN"
-        android:onClick="OnSpeedCap"/>
+        android:onClick="OnSpeedCap" />
 </androidx.constraintlayout.widget.ConstraintLayout>

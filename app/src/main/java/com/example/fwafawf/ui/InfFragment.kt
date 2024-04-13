@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.fwafawf.R
 import com.example.fwafawf.db.MainDb
@@ -26,7 +27,9 @@ class InfFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
+
     ): View? {
+        (activity as AppCompatActivity?)!!.supportActionBar!!.setDisplayHomeAsUpEnabled(false)
         val view = inflater.inflate(R.layout.fragment_inf, container, false)
         val mgET = view.findViewById<EditText>(R.id.mgET)
         val mlET = view.findViewById<EditText>(R.id.mlET)
@@ -57,7 +60,8 @@ class InfFragment : Fragment() {
         okinfBTN.setOnClickListener {
             if ((mgET.text.toString().isEmpty() == false) and (mlET.text.toString()
                     .isEmpty() == false) and (minfET.text.toString()
-                    .isEmpty() == false) and (dozET.text.toString().isEmpty() == false)
+                    .isEmpty() == false) and (dozET.text.toString()
+                    .isEmpty() == false) and (pacientDao!!.all!!.size > 0)
             ) {
                 val mg = mgET.text.toString().toInt()
                 val ml = mlET.text.toString().toInt()
@@ -66,12 +70,11 @@ class InfFragment : Fragment() {
                 val res = minf.toDouble() * doz / (mg * (1000.0 / ml)) * 60
                 val df = DecimalFormat("###.##")
                 resinfTV.text = df.format(res) + " мл/ч"
-                if (infSPN.selectedItem.toString() != null) {
-                    val pacients1: MutableList<Pacient?> = ArrayList()
-                    pacients1.addAll(pacientDao!!.getWithName(infSPN.selectedItem.toString())!!)
-                    pacients1[0]!!.nf = res
-                    pacientDao!!.update(pacients1[0]!!)
-                }
+                val pacients1: MutableList<Pacient?> = ArrayList()
+                pacients1.addAll(pacientDao!!.getWithName(infSPN.selectedItem.toString())!!)
+                pacients1[0]!!.nf = res
+                pacientDao!!.update(pacients1[0]!!)
+
             } else {
                 Toast.makeText(context, "Введите значения!", Toast.LENGTH_LONG).show()
             }

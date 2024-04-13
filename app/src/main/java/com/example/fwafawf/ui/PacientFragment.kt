@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation.findNavController
 import com.example.fwafawf.R
@@ -24,6 +25,7 @@ class PacientFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (activity as AppCompatActivity?)!!.supportActionBar!!.setDisplayHomeAsUpEnabled(false)
         val view = inflater.inflate(R.layout.fragment_pacient, container, false)
         val pnameTv = view.findViewById<TextView>(R.id.pnameTV)
         val pageTv = view.findViewById<TextView>(R.id.pageTV)
@@ -74,7 +76,8 @@ class PacientFragment : Fragment() {
             pdefTv.text = "Дефицит: " + "Гиперкалиемия"
         }
         backaddBTN.setOnClickListener {
-            val navController = findNavController(requireActivity(), R.id.nav_host_fragment_activity_main)
+            val navController =
+                findNavController(requireActivity(), R.id.nav_host_fragment_activity_main)
             navController.navigate(R.id.navigation_dashboard)
         }
         return view

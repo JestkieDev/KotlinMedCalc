@@ -26,19 +26,23 @@ class HomeFragment : Fragment() {
         defBTN = view.findViewById(R.id.calBTN)
         capBTN = view.findViewById(R.id.capBTN)
         imtBTN?.setOnClickListener(View.OnClickListener {
-            val navController = findNavController(requireActivity(), R.id.nav_host_fragment_activity_main)
+            val navController =
+                findNavController(requireActivity(), R.id.nav_host_fragment_activity_main)
             navController.navigate(R.id.navigation_imt)
         })
         infBTN?.setOnClickListener(View.OnClickListener {
-            val navController = findNavController(requireActivity(), R.id.nav_host_fragment_activity_main)
+            val navController =
+                findNavController(requireActivity(), R.id.nav_host_fragment_activity_main)
             navController.navigate(R.id.navigation_inf)
         })
         defBTN?.setOnClickListener(View.OnClickListener {
-            val navController = findNavController(requireActivity(), R.id.nav_host_fragment_activity_main)
+            val navController =
+                findNavController(requireActivity(), R.id.nav_host_fragment_activity_main)
             navController.navigate(R.id.navigation_def)
         })
         capBTN?.setOnClickListener(View.OnClickListener {
-            val navController = findNavController(requireActivity(), R.id.nav_host_fragment_activity_main)
+            val navController =
+                findNavController(requireActivity(), R.id.nav_host_fragment_activity_main)
             navController.navigate(R.id.navigation_cap)
         })
         return view

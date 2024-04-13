@@ -10,6 +10,7 @@ import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import com.example.fwafawf.R
 import com.example.fwafawf.db.MainDb
@@ -27,6 +28,7 @@ class ImtFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        (activity as AppCompatActivity?)!!.supportActionBar!!.setDisplayHomeAsUpEnabled(false)
         val view = inflater.inflate(R.layout.fragment_imt, container, false)
         val mET = view.findViewById<EditText>(R.id.mET)
         val hET = view.findViewById<EditText>(R.id.hET)
@@ -54,21 +56,19 @@ class ImtFragment : Fragment() {
         imtSPN.adapter = arrayAdapter
         okimtBTN.setOnClickListener {
             if ((mET.text.toString().isEmpty() == false) and (hET.text.toString()
-                    .isEmpty() == false)
+                    .isEmpty() == false) and (pacientDao!!.all!!.size > 0)
             ) {
                 val mass = mET.text.toString().toInt()
                 val height = hET.text.toString().toInt().toDouble() / 100
                 val res = mass / Math.pow(height, 2.0)
                 val df = DecimalFormat("###.#")
                 reimtTV.text = df.format(res)
-                if (imtSPN.selectedItem.toString() != null) {
-                    val pacients1: MutableList<Pacient?> = ArrayList()
-                    pacients1.addAll(pacientDao!!.getWithName(imtSPN.selectedItem.toString())!!)
-                    pacients1[0]!!.imt = res
-                    pacientDao!!.update(pacients1[0]!!)
-                } else {
-                    Toast.makeText(context, "Введите значения!", Toast.LENGTH_LONG).show()
-                }
+                val pacients1: MutableList<Pacient?> = ArrayList()
+                pacients1.addAll(pacientDao!!.getWithName(imtSPN.selectedItem.toString())!!)
+                pacients1[0]!!.imt = res
+                pacientDao!!.update(pacients1[0]!!)
+            } else {
+                Toast.makeText(context, "Введите значения!", Toast.LENGTH_LONG).show()
             }
         }
         backBTN.setOnClickListener {
