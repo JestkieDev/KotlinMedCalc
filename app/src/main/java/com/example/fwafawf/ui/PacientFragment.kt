@@ -15,7 +15,7 @@ import com.example.fwafawf.db.MainDb.Companion.getINSTANCE
 import com.example.fwafawf.db.Pacient
 import com.example.fwafawf.db.PacientDao
 import java.text.DecimalFormat
-
+// ^-^
 class PacientFragment : Fragment() {
     var mainDb: MainDb? = null
     var pacientDao: PacientDao? = null
