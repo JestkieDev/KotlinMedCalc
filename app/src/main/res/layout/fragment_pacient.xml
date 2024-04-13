@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/pacientfrag"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="410dp"
+        android:layout_height="175dp"
+        android:background="@drawable/backingblue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="410dp"
+        android:layout_height="350dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/backingblue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/pnameTV"
+        android:layout_width="317dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="28dp"
+        android:shadowColor="@color/black"
+        android:text="ФИО"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView" />
+
+    <TextView
+        android:id="@+id/pageTV"
+        android:layout_width="317dp"
+        android:layout_height="35dp"
+        android:shadowColor="@color/black"
+        android:text="Возраст"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/pnameTV"
+        app:layout_constraintTop_toBottomOf="@+id/pnameTV"
+        app:layout_constraintVertical_bias="0.051" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="332dp"
+        android:layout_height="51dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="40dp"
+
+        android:text="Отчеты:"
+        android:textColor="@color/white"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="@+id/imageView2" />
+
+    <TextView
+        android:id="@+id/pimtTV"
+        android:layout_width="332dp"
+        android:layout_height="37dp"
+        android:text="ИМТ:"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
+
+    <TextView
+        android:id="@+id/pcapTV"
+        android:layout_width="332dp"
+        android:layout_height="75dp"
+        android:text="Скорость внутривенного капельного введения препарата:"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/pimtTV"
+        app:layout_constraintTop_toBottomOf="@+id/pimtTV" />
+
+    <TextView
+        android:id="@+id/pinfTV"
+        android:layout_width="332dp"
+        android:layout_height="45dp"
+        android:text="Скорость инфузии препарата:"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/pcapTV"
+        app:layout_constraintTop_toBottomOf="@+id/pcapTV" />
+
+    <TextView
+        android:id="@+id/pdefTV"
+        android:layout_width="332dp"
+        android:layout_height="47dp"
+        android:text="Дефецит калия:"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/pinfTV"
+        app:layout_constraintTop_toBottomOf="@+id/pinfTV" />
+
+    <Button
+        android:id="@+id/backpacBTN"
+        android:layout_width="147dp"
+        android:layout_height="55dp"
+        android:text="Назад"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/pdefTV"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

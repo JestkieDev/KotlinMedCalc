@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_home">
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.fwafawf.ui.home.HomeFragment"
+        android:label="Калькуляторы"
+        tools:layout="@layout/fragment_home"/>
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.example.fwafawf.ui.dashboard.DashboardFragment"
+        android:label="Пациенты"
+        tools:layout="@layout/fragment_dashboard"/>
+
+    <fragment
+        android:id="@+id/navigation_addpacients"
+        android:name="com.example.fwafawf.ui.AddFragment"
+        android:label="Добавить пациента"
+        tools:layout="@layout/fragment_add"/>
+
+    <fragment
+        android:id="@+id/navigation_pacient"
+        android:name="com.example.fwafawf.ui.PacientFragment"
+        android:label="О пациенте"
+        tools:layout="@layout/fragment_pacient"/>
+
+    <fragment
+        android:id="@+id/navigation_imt"
+        android:name="com.example.fwafawf.ui.ImtFragment"
+        android:label="ИМТ"
+        tools:layout="@layout/fragment_imt"/>
+
+    <fragment
+        android:id="@+id/navigation_cap"
+        android:name="com.example.fwafawf.ui.CapFragment"
+        android:label="Скорость внутривенного капельного введения препарата"
+        tools:layout="@layout/fragment_cap"/>
+    <fragment
+        android:id="@+id/navigation_def"
+        android:name="com.example.fwafawf.ui.DefFragment"
+        android:label="Дефицит калия"
+        tools:layout="@layout/fragment_def"/>
+    <fragment
+        android:id="@+id/navigation_inf"
+        android:name="com.example.fwafawf.ui.InfFragment"
+        android:label="Скорость инфузии препарата"
+        tools:layout="@layout/fragment_inf"/>
+
+
+</navigation>

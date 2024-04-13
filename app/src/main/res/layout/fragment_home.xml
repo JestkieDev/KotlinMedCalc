@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:id="@+id/homefrag"
+    >
+
+
+    <Button
+        android:id="@+id/imtBTN"
+        android:layout_width="345dp"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:layout_marginTop="24dp"
+        android:text="ИМТ"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:onClick="OnImt"/>
+
+    <Button
+        android:id="@+id/infBTN"
+        android:layout_width="345dp"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:layout_marginTop="16dp"
+        android:text="Скорость инфузии препарата"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imtBTN"
+        android:onClick="OnSpeedInf"/>
+
+    <Button
+        android:id="@+id/calBTN"
+        android:layout_width="345dp"
+        android:layout_height="wrap_content"
+        android:textSize="22sp"
+        android:layout_marginTop="16dp"
+        android:text="Дефицит калия"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/infBTN"
+        android:onClick="OnCal"/>
+
+    <Button
+        android:id="@+id/capBTN"
+        android:layout_width="345dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:textSize="22sp"
+        android:text="Скорость внутривенного капельного введения препарата"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/calBTN"
+        android:onClick="OnSpeedCap"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
